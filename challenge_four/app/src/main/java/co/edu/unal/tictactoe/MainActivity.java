@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id){
             case DIALOG_QUIT_ID:
+                builder.setTitle("");
                 builder.setMessage(R.string.quit_question)
                         .setCancelable(false)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                         .setNegativeButton(R.string.no, null);
                 break;
             case DIALOG_DIFFICULTY_ID:
+                builder.setTitle("Select a level");
                 builder.setSingleChoiceItems(levels, -1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -250,9 +252,9 @@ public class MainActivity extends AppCompatActivity {
         mBoardButtons[location].setEnabled(false);
         mBoardButtons[location].setText(String.valueOf(player));
         if (player == TicTacToeGame.HUMAN_PLAYER)
-            mBoardButtons[location].setTextColor(Color.rgb(0, 200, 0));
+            mBoardButtons[location].setTextColor(Color.rgb(255, 16, 51));
         else
-            mBoardButtons[location].setTextColor(Color.rgb(200, 0, 0));
+            mBoardButtons[location].setTextColor(Color.rgb(0, 110, 179));
     }
 
 }

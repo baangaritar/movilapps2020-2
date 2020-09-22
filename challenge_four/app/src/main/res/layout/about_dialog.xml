@@ -8,6 +8,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
         android:text="About Tic Tac Toe Game"
         android:textAlignment="center" />
 
@@ -20,8 +21,9 @@
         <ImageView
             android:id="@+id/icon"
             android:layout_width="0dp"
-            android:layout_height="200dip"
+            android:layout_height="150dip"
             android:layout_weight="0.6"
+            android:layout_margin="50dip"
             android:src="@mipmap/ic_launcher" />
 
 
