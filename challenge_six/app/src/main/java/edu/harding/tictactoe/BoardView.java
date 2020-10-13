@@ -1,12 +1,14 @@
 package edu.harding.tictactoe;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -23,6 +25,9 @@ public class BoardView extends View {
 
     private Paint mPaint;
     private TicTacToeGame mGame;
+
+    private int boardColor;
+    private SharedPreferences mPrefs;
 
 
     public BoardView(Context context) {
@@ -49,20 +54,23 @@ public class BoardView extends View {
         mHumanBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.user_icon);
         mComputerBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.computer_icon);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+
         int boardHeight = getHeight();
         int boardWidth = getWidth();
 
-        mPaint.setColor(Color.LTGRAY);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(getBoardColor());
         mPaint.setStrokeWidth(GRID_WIDTH);
 
-        int cellWidth = boardWidth / 3;
 
+        int cellWidth = boardWidth / 3;
         canvas.drawLine(cellWidth, 0, cellWidth, boardHeight, mPaint);
         canvas.drawLine(cellWidth * 2 , 0, cellWidth * 2, boardHeight, mPaint);
         canvas.drawLine(0 , cellWidth, boardWidth, cellWidth, mPaint);
@@ -109,4 +117,11 @@ public class BoardView extends View {
     }
 
 
+    public int getBoardColor() {
+        return mPrefs.getInt("color_preference", getResources().getColor(R.color.default_color));
+    }
+
+    public void setBoardColor(int boardColor) {
+        this.boardColor = boardColor;
+    }
 }

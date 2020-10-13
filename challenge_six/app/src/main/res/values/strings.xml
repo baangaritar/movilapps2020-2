@@ -14,13 +14,13 @@
     <string name="no">No</string>
     <string name="score_label_tie">Ties:</string>
     <string name="score_label_human">You:</string>
-    <string name="score_label_computer">Game:</string>
+    <string name="score_label_computer">Android:</string>
 
     <string name="difficulty_easy">Easy</string>
     <string name="difficulty_harder">Harder</string>
     <string name="difficulty_expert">Expert</string>
 
-<!--    <string-array name="difficulty_levels">-->
+    <!--    <string-array name="difficulty_levels">-->
 <!--        <item name="difficulty_easy">Easy</item>-->
 <!--        <item name="difficulty_harder">Harder</item>-->
 <!--        <item name="difficulty_expert">Expert</item>-->

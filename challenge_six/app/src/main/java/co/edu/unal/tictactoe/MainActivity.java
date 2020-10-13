@@ -2,6 +2,7 @@ package co.edu.unal.tictactoe;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.fragment.app.DialogFragment;
@@ -14,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -157,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -174,6 +177,9 @@ public class MainActivity extends AppCompatActivity {
                 mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Harder);
             else
                 mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.Expert);
+
+            int colorPreference = mPrefs.getInt("color_preference", getResources().getColor(R.color.default_color));
+            mBoardView.setBoardColor(colorPreference);
         }
     }
 

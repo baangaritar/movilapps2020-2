@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <CheckBoxPreference
         android:key="sound"
@@ -20,6 +22,17 @@
         android:defaultValue="@string/difficulty_expert"
         android:entries="@array/list_difficulty_level"
         android:entryValues="@array/list_difficulty_level" />
+
+    <com.flask.colorpicker.ColorPickerPreference
+        android:key="color_preference"
+        android:title="Select board color"
+        app:alphaSlider="true"
+        app:density="8"
+        app:initialColor="@color/default_color"
+        app:lightnessSlider="true"
+        app:pickerTitle="Select board color"
+        app:wheelType="FLOWER" />
+
 
 </PreferenceScreen>
 

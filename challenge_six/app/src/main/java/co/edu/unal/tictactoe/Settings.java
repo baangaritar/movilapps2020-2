@@ -7,8 +7,12 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.flask.colorpicker.ColorPickerPreference;
+import com.flask.colorpicker.ColorPickerView;
 
 public class Settings extends PreferenceActivity {
 
@@ -57,6 +61,19 @@ public class Settings extends PreferenceActivity {
                 return true;
             }
         });
+
+        final ColorPickerPreference colorPickerPreference = (ColorPickerPreference) findPreference("color_preference");
+        colorPickerPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                // Since we are handling the pref, we must save it
+                SharedPreferences.Editor ed = prefs.edit();
+                ed.putInt("color_preference", (int) newValue);
+                ed.commit();
+                return true;
+            }
+        });
+
 
     }
 }
