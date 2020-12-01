@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="radio_to_get_places"
+        android:summary=""
+        android:defaultValue="@string/default_distance"
+        android:title="Radio to get places"  />
+
+</PreferenceScreen >
